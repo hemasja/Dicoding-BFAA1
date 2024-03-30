@@ -15,7 +15,6 @@ import com.example.dicoding_bfaa1.ui.home.UserAdapter
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private val viewModel by viewModels<MainViewModel>()
-    var a = 1
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,10 +22,9 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val layoutManager = LinearLayoutManager(this)
-        binding.rvUsers.layoutManager = layoutManager
-        val itemDecoration = DividerItemDecoration(this, layoutManager.orientation)
-        binding.rvUsers.addItemDecoration(itemDecoration)
+        setRecyclerView()
+
+        setSearchBar()
 
         viewModel.userList.observe(this) { users ->
             setUsersData(users)
@@ -36,6 +34,27 @@ class MainActivity : AppCompatActivity() {
             showLoading(it)
         }
 
+    }
+
+    fun setSearchBar() {
+        with(binding) {
+            searchView.setupWithSearchBar(searchBar)
+            searchView
+                .editText
+                .setOnEditorActionListener { textView, actionId, event ->
+                    searchBar.setText(searchView.text)
+                    searchView.hide()
+                    viewModel.findGithubUsers(searchView.text.toString())
+                    false
+                }
+        }
+    }
+
+    fun setRecyclerView() {
+        val layoutManager = LinearLayoutManager(this)
+        binding.rvUsers.layoutManager = layoutManager
+        val itemDecoration = DividerItemDecoration(this, layoutManager.orientation)
+        binding.rvUsers.addItemDecoration(itemDecoration)
     }
 
     private fun setUsersData(users: List<ItemsItem>) {

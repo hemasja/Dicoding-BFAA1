@@ -27,7 +27,7 @@ class MainViewModel: ViewModel() {
         findGithubUsers(USER_ID)
     }
 
-    private fun findGithubUsers(query: String) {
+    fun findGithubUsers(query: String) {
         _isLoading.value = true
         val client = ApiConfig.getApiService().getGithubUsers(query)
         client.enqueue(object: Callback<GithubResponse> {
