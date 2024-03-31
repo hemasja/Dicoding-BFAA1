@@ -24,6 +24,8 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        val preferences = 1
+
         setRecyclerView()
 
         setSearchBar()

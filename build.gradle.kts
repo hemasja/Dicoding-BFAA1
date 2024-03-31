@@ -4,4 +4,5 @@ plugins {
     alias(libs.plugins.jetbrainsKotlinAndroid) apply false
     alias(libs.plugins.secretGradlePlugin) apply false
     alias(libs.plugins.parcelize) apply false
+    alias(libs.plugins.ksp) apply false
 }

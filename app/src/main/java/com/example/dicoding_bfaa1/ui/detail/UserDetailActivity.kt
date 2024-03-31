@@ -24,8 +24,8 @@ class UserDetailActivity : AppCompatActivity() {
 
         @StringRes
         private val TAB_TITLES = intArrayOf(
-            R.string.followers,
-            R.string.following
+            R.string.tab_text_1,
+            R.string.tab_text_2
         )
     }
 

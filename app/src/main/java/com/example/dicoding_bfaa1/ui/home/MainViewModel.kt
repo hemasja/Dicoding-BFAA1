@@ -1,5 +1,6 @@
 package com.example.dicoding_bfaa1.ui.home
 
+import android.app.Application
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -11,17 +12,13 @@ import retrofit2.Call
 import retrofit2.Response
 import retrofit2.Callback
 
-class MainViewModel: ViewModel() {
+class MainViewModel(application: Application): ViewModel() {
     private val _userList = MutableLiveData<List<ItemsItem>>()
     val userList: LiveData<List<ItemsItem>> = _userList
 
     private val _isLoading = MutableLiveData<Boolean>()
     val isLoading: LiveData<Boolean> = _isLoading
 
-    companion object {
-        private const val TAG = "MainViewModel"
-        private const val USER_ID = "q"
-    }
 
     init {
         findGithubUsers(USER_ID)
@@ -53,5 +50,8 @@ class MainViewModel: ViewModel() {
         })
     }
 
-
+    companion object {
+        private const val TAG = "MainViewModel"
+        private const val USER_ID = "q"
+    }
 }

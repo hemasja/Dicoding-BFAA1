@@ -43,9 +43,6 @@ data class ItemsItem(
 	@field:SerializedName("url")
 	val url: String,
 
-	@field:SerializedName("subscriptions_url")
-	val subscriptionsUrl: String,
-
 	@field:SerializedName("score")
 	val score: Int,
 

@@ -11,6 +11,7 @@ activity = "1.8.2"
 constraintlayout = "2.1.4"
 sgp = "2.0.1"
 parcelize = "1.9.23"
+ksp ="1.9.0-1.0.13"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -27,4 +28,5 @@ androidApplication = { id = "com.android.application", version.ref = "agp" }
 jetbrainsKotlinAndroid = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 secretGradlePlugin = { id = "com.google.android.libraries.mapsplatform.secrets-gradle-plugin", version.ref = "sgp"}
 parcelize = { id = "org.jetbrains.kotlin.plugin.parcelize", version.ref = "parcelize"}
+ksp = { id = "com.google.devtools.ksp", version.ref = "ksp"}
 

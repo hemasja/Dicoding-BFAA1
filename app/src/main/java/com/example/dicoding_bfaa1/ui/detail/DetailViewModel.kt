@@ -1,21 +1,26 @@
 package com.example.dicoding_bfaa1.ui.detail
 
+import android.app.Application
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.dicoding_bfaa1.data.response.UserDetailResponse
 import com.example.dicoding_bfaa1.data.retrofit.ApiConfig
+import com.example.dicoding_bfaa1.database.FavoriteUser
+import com.example.dicoding_bfaa1.repository.FavoriteUserRepository
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class DetailViewModel: ViewModel() {
+class DetailViewModel(application: Application): ViewModel() {
     private val _detailList = MutableLiveData<UserDetailResponse>()
     val detailList: LiveData<UserDetailResponse> = _detailList
 
     private val _isLoading = MutableLiveData<Boolean>()
     val isLoading: LiveData<Boolean> = _isLoading
+
+    private val mFavoriteRepository: FavoriteUserRepository = FavoriteUserRepository(application)
 
     companion object {
         private const val TAG = "DetailViewModel"
@@ -47,4 +52,6 @@ class DetailViewModel: ViewModel() {
 
         })
     }
+
+    fun getAllFavoriteUsers(): LiveData<List<FavoriteUser>> = mFavoriteRepository.getAllFavoriteUsers()
 }
