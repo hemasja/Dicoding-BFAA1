@@ -1,6 +1,8 @@
 package com.example.dicoding_bfaa1.data.response
 
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import kotlinx.android.parcel.Parcelize
 
 data class GithubResponse(
 
@@ -14,6 +16,7 @@ data class GithubResponse(
 	val items: List<ItemsItem>
 )
 
+@Parcelize
 data class ItemsItem(
 
 	@field:SerializedName("gists_url")
@@ -44,7 +47,7 @@ data class ItemsItem(
 	val subscriptionsUrl: String,
 
 	@field:SerializedName("score")
-	val score: Any,
+	val score: Int,
 
 	@field:SerializedName("received_events_url")
 	val receivedEventsUrl: String,
@@ -72,4 +75,4 @@ data class ItemsItem(
 
 	@field:SerializedName("organizations_url")
 	val organizationsUrl: String
-)
+): Parcelable

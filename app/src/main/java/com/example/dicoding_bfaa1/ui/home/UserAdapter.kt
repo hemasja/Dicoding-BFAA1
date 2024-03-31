@@ -55,7 +55,7 @@ class UserAdapter(private val userList: List<ItemsItem>) : ListAdapter<ItemsItem
         holder.bind(users)
 
         holder.itemView.setOnClickListener {
-            onClickedItemCallback.onClickedItem(userList[holder.adapterPosition])
+            this.onClickedItemCallback.onClickedItem(userList[holder.adapterPosition])
         }
     }
 }

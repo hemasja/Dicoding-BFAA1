@@ -3,7 +3,6 @@ package com.example.dicoding_bfaa1.data.retrofit
 import com.example.dicoding_bfaa1.BuildConfig
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
-import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
