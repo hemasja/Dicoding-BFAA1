@@ -7,6 +7,61 @@
     android:layout_height="match_parent"
     tools:context=".ui.detail.UserDetailActivity">
 
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appbarLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/topBarApp"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            app:layout_scrollFlags="scroll|enterAlways"
+            app:titleTextColor="@color/white">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/back_btn"
+                android:onClick="onBackButtonClicked"
+                android:src="@drawable/baseline_arrow_back_24"
+                style="@style/BackgroundColor"/>
+            
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/user_detail"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:layout_marginStart="30dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvName"/>
+            
+            <ImageView
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_marginEnd="16dp"
+                android:contentDescription="@string/fav_btn"
+                android:onClick="goToFavorite"
+                style="@style/BackgroundColor"
+                android:src="@drawable/baseline_favorite_24"
+                android:layout_gravity="end"/>
+            <ImageView
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_marginEnd="16dp"
+                android:contentDescription="@string/settings"
+                android:onClick="goToSetting"
+                style="@style/BackgroundColor"
+                android:src="@drawable/baseline_settings_24"
+                android:layout_gravity="end"/>
+        </com.google.android.material.appbar.MaterialToolbar>
+    </com.google.android.material.appbar.AppBarLayout>
+    
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/civProfile"
         android:layout_width="105dp"
@@ -98,6 +153,18 @@
 
     </androidx.viewpager2.widget.ViewPager2>
 
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabFavorite"
+        style="@style/FloatingButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="28dp"
+        android:layout_marginBottom="48dp"
+        android:contentDescription="@string/favorite"
+        android:src="@drawable/baseline_favorite_border_24"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
     <ProgressBar
         android:id="@+id/progressBar2"
         style="?android:attr/progressBarStyle"
@@ -109,16 +176,5 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.392" />
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fabFavorite"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="28dp"
-        android:layout_marginBottom="48dp"
-        android:src="@drawable/baseline_favorite_border_24"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:contentDescription="FavoriteButton" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

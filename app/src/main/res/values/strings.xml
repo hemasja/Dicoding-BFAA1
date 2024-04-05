@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Dicoding-BFAA1</string>
+    <string name="app_name">Github User App</string>
 
     <string name="name">Muhammad Hemas Julang Arrasy</string>
     <string name="hint_searchbar">Search User</string>
@@ -11,5 +11,9 @@
     <string name="tab_text_1">Followers</string>
     <string name="tab_text_2">Following</string>
     <string name="favorite_user">Favorite User</string>
+    <string name="settings">Settings</string>
+    <string name="dark_mode">Dark Mode</string>
+    <string name="fav_btn">Favorite Button</string>
+    <string name="favorite">Favorite</string>
 
 </resources>

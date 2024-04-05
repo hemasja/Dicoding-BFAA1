@@ -1,4 +1,4 @@
-package com.example.dicoding_bfaa1.database
+package com.example.dicoding_bfaa1.data.database
 
 import android.content.Context
 import androidx.room.Database

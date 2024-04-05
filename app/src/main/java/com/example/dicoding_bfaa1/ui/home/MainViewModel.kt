@@ -5,14 +5,16 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.asLiveData
 import com.example.dicoding_bfaa1.data.response.GithubResponse
 import com.example.dicoding_bfaa1.data.response.ItemsItem
 import com.example.dicoding_bfaa1.data.retrofit.ApiConfig
+import com.example.dicoding_bfaa1.ui.setting.SettingPreferences
 import retrofit2.Call
 import retrofit2.Response
 import retrofit2.Callback
 
-class MainViewModel(application: Application): ViewModel() {
+class MainViewModel(private val preferences: SettingPreferences): ViewModel() {
     private val _userList = MutableLiveData<List<ItemsItem>>()
     val userList: LiveData<List<ItemsItem>> = _userList
 
@@ -50,8 +52,12 @@ class MainViewModel(application: Application): ViewModel() {
         })
     }
 
+    fun getThemeSetting(): LiveData<Boolean> {
+        return preferences.getThemeSetting().asLiveData()
+    }
+
     companion object {
         private const val TAG = "MainViewModel"
-        private const val USER_ID = "q"
+        private const val USER_ID = "hemas"
     }
 }

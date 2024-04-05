@@ -1,10 +1,10 @@
-package com.example.dicoding_bfaa1.repository
+package com.example.dicoding_bfaa1.data.repository
 
 import android.app.Application
 import androidx.lifecycle.LiveData
-import com.example.dicoding_bfaa1.database.FavoriteUser
-import com.example.dicoding_bfaa1.database.FavoriteUserDao
-import com.example.dicoding_bfaa1.database.FavoriteUserRoomDatabase
+import com.example.dicoding_bfaa1.data.database.FavoriteUser
+import com.example.dicoding_bfaa1.data.database.FavoriteUserDao
+import com.example.dicoding_bfaa1.data.database.FavoriteUserRoomDatabase
 import java.util.concurrent.ExecutorService
 import java.util.concurrent.Executors
 

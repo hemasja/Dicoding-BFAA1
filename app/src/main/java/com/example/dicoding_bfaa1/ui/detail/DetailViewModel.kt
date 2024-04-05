@@ -7,8 +7,8 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.dicoding_bfaa1.data.response.UserDetailResponse
 import com.example.dicoding_bfaa1.data.retrofit.ApiConfig
-import com.example.dicoding_bfaa1.database.FavoriteUser
-import com.example.dicoding_bfaa1.repository.FavoriteUserRepository
+import com.example.dicoding_bfaa1.data.database.FavoriteUser
+import com.example.dicoding_bfaa1.data.repository.FavoriteUserRepository
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -21,10 +21,6 @@ class DetailViewModel(application: Application): ViewModel() {
     val isLoading: LiveData<Boolean> = _isLoading
 
     private val mFavoriteRepository: FavoriteUserRepository = FavoriteUserRepository(application)
-
-    companion object {
-        private const val TAG = "DetailViewModel"
-    }
 
     fun getUserDetail(user: String) {
         _isLoading.value = true
@@ -54,4 +50,16 @@ class DetailViewModel(application: Application): ViewModel() {
     }
 
     fun getAllFavoriteUsers(): LiveData<List<FavoriteUser>> = mFavoriteRepository.getAllFavoriteUsers()
+
+    fun insertFavoriteUser(user: FavoriteUser) {
+        mFavoriteRepository.insert(user)
+    }
+
+    fun deleteFavoriteUser(id: Int) {
+        mFavoriteRepository.delete(id)
+    }
+
+    companion object {
+        private const val TAG = "DetailViewModel"
+    }
 }

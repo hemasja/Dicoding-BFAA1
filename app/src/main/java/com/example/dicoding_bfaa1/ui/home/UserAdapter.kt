@@ -13,20 +13,6 @@ class UserAdapter(private val userList: List<ItemsItem>) : ListAdapter<ItemsItem
 
     private lateinit var onClickedItemCallback: OnClickedItemCallback
 
-
-    companion object {
-        val DIFF_CALLBACK = object: DiffUtil.ItemCallback<ItemsItem>(){
-            override fun areItemsTheSame(oldItem: ItemsItem, newItem: ItemsItem): Boolean {
-                return oldItem == newItem
-            }
-
-            override fun areContentsTheSame(oldItem: ItemsItem, newItem: ItemsItem): Boolean {
-                return oldItem == newItem
-            }
-
-        }
-    }
-
     class MyViewHolder(private val binding: ItemUserListBinding): RecyclerView.ViewHolder(binding.root) {
         fun bind(items: ItemsItem) {
             Glide.with(itemView.context)
@@ -56,6 +42,19 @@ class UserAdapter(private val userList: List<ItemsItem>) : ListAdapter<ItemsItem
 
         holder.itemView.setOnClickListener {
             this.onClickedItemCallback.onClickedItem(userList[holder.adapterPosition])
+        }
+    }
+
+    companion object {
+        val DIFF_CALLBACK = object: DiffUtil.ItemCallback<ItemsItem>(){
+            override fun areItemsTheSame(oldItem: ItemsItem, newItem: ItemsItem): Boolean {
+                return oldItem == newItem
+            }
+
+            override fun areContentsTheSame(oldItem: ItemsItem, newItem: ItemsItem): Boolean {
+                return oldItem == newItem
+            }
+
         }
     }
 }

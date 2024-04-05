@@ -1,7 +1,7 @@
-package com.example.dicoding_bfaa1.favorite
+package com.example.dicoding_bfaa1.ui.favorite
 
 import androidx.recyclerview.widget.DiffUtil
-import com.example.dicoding_bfaa1.database.FavoriteUser
+import com.example.dicoding_bfaa1.data.database.FavoriteUser
 
 class FavoriteDiffCallback(private val oldFavoriteUserList: List<FavoriteUser>, private val newFavoriteUserList: List<FavoriteUser>): DiffUtil.Callback() {
     override fun getOldListSize(): Int = oldFavoriteUserList.size

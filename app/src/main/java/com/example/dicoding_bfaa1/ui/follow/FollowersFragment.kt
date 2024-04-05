@@ -1,4 +1,4 @@
-package com.example.dicoding_bfaa1.ui.detail
+package com.example.dicoding_bfaa1.ui.follow
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -32,7 +32,8 @@ class FollowersFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory()).get(FollowersViewModel::class.java)
+        viewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory()).get(
+            FollowersViewModel::class.java)
 
         showRecyclerView()
 

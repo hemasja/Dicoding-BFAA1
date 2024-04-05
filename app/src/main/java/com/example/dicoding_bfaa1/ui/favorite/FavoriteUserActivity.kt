@@ -1,4 +1,4 @@
-package com.example.dicoding_bfaa1.favorite
+package com.example.dicoding_bfaa1.ui.favorite
 
 import android.os.Bundle
 import android.view.View
@@ -16,10 +16,12 @@ class FavoriteUserActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
+
+        binding = ActivityFavoriteUserBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         val factory = FavoriteUserViewModelFactory.getInstance(this@FavoriteUserActivity.application)
-        viewModel = ViewModelProvider(this@FavoriteUserActivity, factory).get(FavoriteUserViewModel::class.java)
+        viewModel = ViewModelProvider(this@FavoriteUserActivity, factory)[FavoriteUserViewModel::class.java]
 
         adapter = FavoriteUserAdapter()
 

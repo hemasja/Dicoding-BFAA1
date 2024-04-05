@@ -4,9 +4,10 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
+import com.example.dicoding_bfaa1.ui.follow.FollowersFragment
 
 class PagerSectionAdapter(activity: AppCompatActivity): FragmentStateAdapter(activity) {
-    var username = ""
+    var username: String = ""
     override fun getItemCount(): Int {
         return 2
     }

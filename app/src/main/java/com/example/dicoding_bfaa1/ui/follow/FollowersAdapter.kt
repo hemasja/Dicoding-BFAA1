@@ -1,4 +1,4 @@
-package com.example.dicoding_bfaa1.ui.detail
+package com.example.dicoding_bfaa1.ui.follow
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -20,6 +20,16 @@ class FollowersAdapter: ListAdapter<ItemsItem, FollowersAdapter.FollowersViewHol
         }
     }
 
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FollowersViewHolder {
+        val binding = ItemUserListBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        return FollowersViewHolder(binding)
+    }
+
+    override fun onBindViewHolder(holder: FollowersViewHolder, position: Int) {
+        val items = getItem(position)
+        holder.binding(items)
+    }
+
     companion object {
         val DIFF_CALLBACK = object : DiffUtil.ItemCallback<ItemsItem>() {
             override fun areItemsTheSame(oldItem: ItemsItem, newItem: ItemsItem): Boolean {
@@ -31,15 +41,5 @@ class FollowersAdapter: ListAdapter<ItemsItem, FollowersAdapter.FollowersViewHol
             }
 
         }
-    }
-
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FollowersViewHolder {
-        val binding = ItemUserListBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return FollowersViewHolder(binding)
-    }
-
-    override fun onBindViewHolder(holder: FollowersViewHolder, position: Int) {
-        val items = getItem(position)
-        holder.binding(items)
     }
 }

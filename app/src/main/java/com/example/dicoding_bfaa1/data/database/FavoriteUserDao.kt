@@ -1,4 +1,4 @@
-package com.example.dicoding_bfaa1.database
+package com.example.dicoding_bfaa1.data.database
 
 import androidx.lifecycle.LiveData
 import androidx.room.Dao
@@ -10,7 +10,7 @@ import androidx.room.Update
 
 @Dao
 interface FavoriteUserDao {
-    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insert(favoriteUser: FavoriteUser)
 
     @Query("SELECT * from FavoriteUser ORDER BY login ASC")

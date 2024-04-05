@@ -1,4 +1,4 @@
-package com.example.dicoding_bfaa1.ui.detail
+package com.example.dicoding_bfaa1.ui.follow
 
 import android.util.Log
 import androidx.lifecycle.LiveData
@@ -14,8 +14,8 @@ class FollowersViewModel: ViewModel() {
     private val _followersList = MutableLiveData<List<ItemsItem>>()
     val followersList: LiveData<List<ItemsItem>> = _followersList
 
-    private val _isloading = MutableLiveData<Boolean>()
-    val isLoading: LiveData<Boolean> = _isloading
+    private val _isLoading = MutableLiveData<Boolean>()
+    val isLoading: LiveData<Boolean> = _isLoading
 
     private val _followingList = MutableLiveData<List<ItemsItem>>()
     val followingList: LiveData<List<ItemsItem>> = _followingList
@@ -25,7 +25,7 @@ class FollowersViewModel: ViewModel() {
     }
 
     fun getFollowers(user: String) {
-        _isloading.value = true
+        _isLoading.value = true
 
         val client = ApiConfig.getApiService().getFollowers(user)
         client.enqueue(object : Callback<List<ItemsItem>> {
@@ -33,7 +33,7 @@ class FollowersViewModel: ViewModel() {
                 call: Call<List<ItemsItem>>,
                 response: Response<List<ItemsItem>>
             ) {
-                _isloading.value = false
+                _isLoading.value = false
                 if (response.isSuccessful) {
                     if (response.body() != null) {
                         _followersList.value = response.body()
@@ -44,14 +44,14 @@ class FollowersViewModel: ViewModel() {
             }
 
             override fun onFailure(call: Call<List<ItemsItem>>, t: Throwable) {
-                _isloading.value = true
+                _isLoading.value = true
                 Log.e(TAG, "onFailure: ${t.message.toString()}")
             }
         })
     }
 
     fun getFollowing(user: String) {
-        _isloading.value = true
+        _isLoading.value = true
 
         val client = ApiConfig.getApiService().getFollowing(user)
         client.enqueue(object : Callback<List<ItemsItem>> {
@@ -59,7 +59,7 @@ class FollowersViewModel: ViewModel() {
                 call: Call<List<ItemsItem>>,
                 response: Response<List<ItemsItem>>
             ) {
-                _isloading.value = false
+                _isLoading.value = false
                 if (response.isSuccessful) {
                     if (response.body() != null) {
                         _followingList.value = response.body()
@@ -70,7 +70,7 @@ class FollowersViewModel: ViewModel() {
             }
 
             override fun onFailure(call: Call<List<ItemsItem>>, t: Throwable) {
-                _isloading.value = true
+                _isLoading.value = true
                 Log.e(TAG, "onFailure: ${t.message}")
             }
         })

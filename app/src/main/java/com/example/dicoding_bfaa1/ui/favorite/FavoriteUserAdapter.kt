@@ -1,4 +1,4 @@
-package com.example.dicoding_bfaa1.favorite
+package com.example.dicoding_bfaa1.ui.favorite
 
 import android.content.Intent
 import android.view.LayoutInflater
@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.dicoding_bfaa1.database.FavoriteUser
+import com.example.dicoding_bfaa1.data.database.FavoriteUser
 import com.example.dicoding_bfaa1.databinding.ActivityFavoriteUserBinding
 import com.example.dicoding_bfaa1.databinding.ItemUserListBinding
 import com.example.dicoding_bfaa1.ui.detail.UserDetailActivity

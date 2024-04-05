@@ -3,7 +3,7 @@ package com.example.dicoding_bfaa1.viewmodelfactory
 import android.app.Application
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.example.dicoding_bfaa1.favorite.FavoriteUserViewModel
+import com.example.dicoding_bfaa1.ui.favorite.FavoriteUserViewModel
 import com.example.dicoding_bfaa1.ui.detail.DetailViewModel
 
 @Suppress("UNCHECKED_CAST")
